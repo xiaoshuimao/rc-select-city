@@ -2,7 +2,7 @@
   "name": "rc-select-city",
   "main": "./dist/index",
   "module": "./src/index.tsx",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com:w567675/rc-select-city.git"
