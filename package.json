@@ -1,7 +1,8 @@
 {
-  "name": "select-city",
+  "name": "rc-select-city",
+  "main": "./dist/index",
+  "module": "./src/index.tsx",
   "version": "1.0.0",
-  "private": true,
   "dependencies": {
     "antd": "^3.1.6",
     "react": "^16.2.0",
@@ -23,7 +24,6 @@
     "typescript": "^2.6.2"
   },
   "description": "",
-  "main": "build/index.js",
   "keywords": [
     "select-city"
   ],
