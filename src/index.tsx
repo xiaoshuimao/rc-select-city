@@ -332,11 +332,10 @@ export default class SelectCity extends React.Component<SelectCityProps, SelectC
             onChange(changedValue);
         }
     }
-    autoSelect = (params) => {
+    autoSelect = (params: any) => {
         const {
             index,
             selectVal,
-            valIndex,
         } =  params;
         const data = this.state.addressMap[index].get(selectVal[index - 1]);
         let length = 0;
@@ -456,18 +455,6 @@ export default class SelectCity extends React.Component<SelectCityProps, SelectC
                 loading: false,
             })
         }, 300)();
-    }
-    getSearchResult = (searchParams:any) => {
-        const {
-            params,
-        } = this.props;
-        const data = {
-            ...searchParams,
-            start: 0,
-            length: 999,
-        };
-        const search = params.search;
-        return fetchFn(search, data);
     }
     setInputValue = (selectVal:number[], selectName:string[]) => {
         const { code, params } = this.props;

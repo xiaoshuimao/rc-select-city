@@ -196,7 +196,7 @@ export const matchSearch  = (q:string, searchSource: searchSourceData[], address
 
 
 const getMatchData = (data: searchSourceData, addressMap: Map<any, any>[], deepMap: any[]) => {
-    const {parentIds, name, firstOfAll, totalPY } = data;
+    const {parentIds} = data;
     const selfValue = data.value;
     let index = parentIds.length;
     let arr: any[] = [];
