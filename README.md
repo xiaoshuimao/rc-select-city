@@ -1,9 +1,16 @@
-## exmple
+## example
 ```js
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import SelectCity from './index';
+const address = require('./address.json');
+
 /**
  * 参数集合
  */
-selectCityParams = {
+const params = {
     deepMap: [{ name: '省', value: 31, }, { name: '市', value: 383 }, { name: '区', value: 3234 }],
     popupStyle: {
         width: 350,
@@ -22,4 +29,6 @@ selectCityParams = {
         console.log('select', selectVal, selectName, code)
     },
 }
+ReactDOM.render(<SelectCity params={params}/>, document.getElementById('root'));
+
 ```
