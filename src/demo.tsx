@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SelectCity from './index';
-const address = require('./address.json');
+const address = require('../address.json');
 var params = {
     address,
     deepMap: [{name: '省',},{name: '市',},{name: '区',}],

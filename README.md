@@ -4,8 +4,8 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SelectCity from './index';
-const address = require('./address.json');
+import SelectCity from 'rc-select-city';
+import address from 'rc-select-city/address.json';
 
 /**
  * 参数集合
