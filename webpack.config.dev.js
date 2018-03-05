@@ -1,9 +1,9 @@
 const tsImportPluginFactory = require('ts-import-plugin');
 
 module.exports = {
-    entry: "./src/demo.tsx",
+    entry: "./example/demo.tsx",
     output: {
-        filename: "./dist/demo.js",
+        filename: "./example/demo.js",
         library: 'selectCity',
     },
     resolve: {
@@ -41,12 +41,4 @@ module.exports = {
         ]
     },
     devtool: 'cheap-module-source-map',
-    externals : {
-        // react: 'react',
-        // 'react-dom': 'react-dom',
-        // 'whatwg-fetch': 'whatwg-fetch',
-        // 'antd/lib/input/index':'antd/lib/input/index',
-        // 'antd/lib/spin/index': 'antd/lib/spin/index',
-        // 'antd/lib/table/index': 'antd/lib/table/index',
-    }
 };

@@ -1,10 +1,6 @@
 /// <reference types="react" />
 import React from 'react';
-import './index.css';
 import { Input } from 'antd';
-/**
- * 参数集合
- */
 export interface SelectCityProps {
     code?: any;
     params: {

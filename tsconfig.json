@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "dist/",
+    "outDir": "es/",
     "module": "es6",
     "target": "es5",
     "lib": [
@@ -22,11 +22,13 @@
     "declaration": true,
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "src/index.css"
   ],
   "exclude": [
     "node_modules",
     "dist",
     "webpack",
+    "src/demo.tsx"
   ]
 }

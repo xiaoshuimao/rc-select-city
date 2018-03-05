@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PostionContainer from './PostionContainer';
-import './index.css';
 import {
     parseAddress,
     parseAddressName,

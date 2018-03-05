@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SelectCity from './index';
+import SelectCity from '../src/index';
+import '../src/index.css';
 const address = require('../address.json');
 var params = {
     address,
