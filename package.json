@@ -2,7 +2,7 @@
   "name": "rc-select-city",
   "main": "./lib/index",
   "module": "./es/index",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com:w567675/rc-select-city.git"

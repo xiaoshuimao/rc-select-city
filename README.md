@@ -5,7 +5,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SelectCity from 'rc-select-city';
-import address from 'rc-select-city/address.json';
+
+import SelectCity from "rc-select-city";
+import "rc-select-city/assets/index.css"
+import "antd/dist/antd.css";
+const address = require("rc-select-city/address.json");
 
 /**
  * 参数集合
