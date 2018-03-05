@@ -20,7 +20,7 @@ const params = {
         width: 350,
         zIndex: 99,
     }, /* 弹窗样式 */
-    search: apiConfig.queryCityData, /* 模糊搜索api */
+    search: true, /* 模糊搜索 */
     address, /* json方式 方式城市基本数据，与addressApi选项2选1， 优先 address */
     //addressApi: apiConfig.getCityData, /* fetch api方式城市基本数据 */
     style: {
