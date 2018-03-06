@@ -1,5 +1,6 @@
 'use strict';
 import React, { Component } from 'react';
+import ReactDOM from "react-dom";
 import Tab from './Tab';
 import TabCon from './TabCon';
 import classSet from './util/classSet';
@@ -27,11 +28,18 @@ export interface PostionContainerProps {
     searching: boolean,
 }
 class PostionContainer extends Component<PostionContainerProps, {}> {
+    private _container: HTMLDivElement;
     constructor(props: PostionContainerProps) {
         super(props);
+        this._container = document.createElement('div')
     }
-    zhReg = /[^\x00-\xff]$/;
-    enReg = /[A-Za-z]$/;
+    componentDidMount() {
+        document.body.appendChild(this._container);
+      }
+    componentWillUnmount() {
+    // Remove the element from the DOM when we unmount
+    document.body.removeChild(this._container);
+    }
     highlightReplace(data:string, matchQ:string) {
         let newData = data.replace(matchQ, `*&*${matchQ}*&*`);
         return newData.split('*&*').map((value: any) => {
@@ -193,7 +201,7 @@ class PostionContainer extends Component<PostionContainerProps, {}> {
         }
 
 
-        return (
+        return ReactDOM.createPortal(
             <div className={className} style={style} onClick={e => this.handClick(e)}>
                 {
                     searching ?
@@ -208,7 +216,7 @@ class PostionContainer extends Component<PostionContainerProps, {}> {
                         </div>
                 }
             </div>
-        )
+        , this._container)
     }
 }
 

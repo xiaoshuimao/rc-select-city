@@ -233,8 +233,6 @@ export default class SelectCity extends React.Component<SelectCityProps, SelectC
     }
     _container:HTMLElement;
     componentDidMount() {
-        this._container = document.createElement('div');
-        document.body.appendChild(this._container);
         /* 挂载document的hide */
         document.addEventListener('click', this.hide);
     }
@@ -271,30 +269,7 @@ export default class SelectCity extends React.Component<SelectCityProps, SelectC
             loading,
         }
     }
-    renderComponent = () => {
-        ReactDOM.unstable_renderSubtreeIntoContainer(this, <PostionContainer {...this.postionContainerProps()} />, this._container);
-    }
-    componentDidUpdate(prevProps:any, prevState:any) {
-        if(prevState.addressLoading  === false) {
-            this.renderComponent();
-        }
-        
-    }
-    componentWillUnmount() {
-        /* 卸载document的hide */
-        document.removeEventListener('click', this.hide);
-
-        /**
-         * 卸载_container
-         */
-        if (this._container) {
-            const container = this._container;
-            ReactDOM.unmountComponentAtNode(container);
-            container.parentNode!.removeChild(container);
-            // this._container = null;
-        }
-    }
-
+    
     /**
      * 触发antd的form验证事件
      */
@@ -480,6 +455,7 @@ export default class SelectCity extends React.Component<SelectCityProps, SelectC
         const style:any = this.props.params.style || {};
         const {
             addressLoading,
+            show,
         } = this.state;
         return (
             <div className="select-city" style={{ width: style.width || '100%', zIndex: 999 ,...style,}}>
@@ -499,7 +475,7 @@ export default class SelectCity extends React.Component<SelectCityProps, SelectC
                                
                                 <span className="allow-clear" onClick={() => this.clear()}>x</span>
                             </div>
-
+                            {!addressLoading && this.state.show && <PostionContainer {...this.postionContainerProps()} />}
                         </div>
                 }
 

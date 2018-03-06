@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SelectCity from "rc-select-city";
-import "rc-select-city/assets/index.css"
-import "antd/dist/antd.css";
-const address = require("rc-select-city/address.json");
+import SelectCity from '../src/index';
+import '../src/index.css';
+const address = require('../address.json');
 var params = {
     address,
     deepMap: [{name: '省',},{name: '市',},{name: '区',}],
