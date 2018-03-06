@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PostionContainer from './PostionContainer';
 import {
     parseAddress,
@@ -475,7 +474,7 @@ export default class SelectCity extends React.Component<SelectCityProps, SelectC
                                
                                 <span className="allow-clear" onClick={() => this.clear()}>x</span>
                             </div>
-                            {!addressLoading && this.state.show && <PostionContainer {...this.postionContainerProps()} />}
+                            {!addressLoading && show && <PostionContainer {...this.postionContainerProps()} />}
                         </div>
                 }
 

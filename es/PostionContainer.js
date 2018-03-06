@@ -18,6 +18,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
     return t;
 };
 import React, { Component } from 'react';
+import ReactDOM from "react-dom";
 import Tab from './Tab';
 import TabCon from './TabCon';
 import classSet from './util/classSet';
@@ -26,8 +27,6 @@ var PostionContainer = /** @class */ (function (_super) {
     __extends(PostionContainer, _super);
     function PostionContainer(props) {
         var _this = _super.call(this, props) || this;
-        _this.zhReg = /[^\x00-\xff]$/;
-        _this.enReg = /[A-Za-z]$/;
         _this.highlight = function (data) {
             var matchQ = _this.props.matchQ;
             var name = data.name, firstOfAll = data.firstOfAll, totalPY = data.totalPY;
@@ -142,8 +141,16 @@ var PostionContainer = /** @class */ (function (_super) {
                 changeState: changeState,
             };
         };
+        _this._container = document.createElement('div');
         return _this;
     }
+    PostionContainer.prototype.componentDidMount = function () {
+        document.body.appendChild(this._container);
+    };
+    PostionContainer.prototype.componentWillUnmount = function () {
+        // Remove the element from the DOM when we unmount
+        document.body.removeChild(this._container);
+    };
     PostionContainer.prototype.highlightReplace = function (data, matchQ) {
         var newData = data.replace(matchQ, "*&*" + matchQ + "*&*");
         return newData.split('*&*').map(function (value) {
@@ -167,12 +174,12 @@ var PostionContainer = /** @class */ (function (_super) {
         });
         /* 定位坐标 */
         var style = __assign({ left: input.left, top: input.top, width: input.width }, params.popupStyle);
-        return (React.createElement("div", { className: className, style: style, onClick: function (e) { return _this.handClick(e); } }, searching ?
+        return ReactDOM.createPortal(React.createElement("div", { className: className, style: style, onClick: function (e) { return _this.handClick(e); } }, searching ?
             React.createElement(Table, __assign({}, this.tableProps()))
             :
                 React.createElement("div", null,
                     React.createElement(Tab, __assign({}, this.props)),
-                    React.createElement(TabCon, __assign({}, this.tabConProps())))));
+                    React.createElement(TabCon, __assign({}, this.tabConProps())))), this._container);
     };
     return PostionContainer;
 }(Component));

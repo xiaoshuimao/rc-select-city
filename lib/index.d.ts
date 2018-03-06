@@ -108,9 +108,6 @@ export default class SelectCity extends React.Component<SelectCityProps, SelectC
         valIndex: number;
         loading: boolean;
     };
-    renderComponent: () => void;
-    componentDidUpdate(prevProps: any, prevState: any): void;
-    componentWillUnmount(): void;
     /**
      * 触发antd的form验证事件
      */

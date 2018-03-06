@@ -20,9 +20,10 @@ export interface PostionContainerProps {
     searching: boolean;
 }
 declare class PostionContainer extends Component<PostionContainerProps, {}> {
+    private _container;
     constructor(props: PostionContainerProps);
-    zhReg: RegExp;
-    enReg: RegExp;
+    componentDidMount(): void;
+    componentWillUnmount(): void;
     highlightReplace(data: string, matchQ: string): any[];
     highlight: (data: Pick<{
         firstOfAll: string;
@@ -45,6 +46,6 @@ declare class PostionContainer extends Component<PostionContainerProps, {}> {
         addressMap: Map<any, any>[];
         changeState: (params: any) => void;
     };
-    render(): JSX.Element;
+    render(): React.ReactPortal;
 }
 export default PostionContainer;

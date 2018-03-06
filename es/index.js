@@ -52,7 +52,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PostionContainer from './PostionContainer';
 import { parseAddress, parseAddressName, throttle, matchSearch, } from './util/util';
 import { Input, Spin, } from 'antd';
@@ -135,9 +134,6 @@ var SelectCity = /** @class */ (function (_super) {
                 valIndex: valIndex,
                 loading: loading,
             };
-        };
-        _this.renderComponent = function () {
-            ReactDOM.unstable_renderSubtreeIntoContainer(_this, React.createElement(PostionContainer, __assign({}, _this.postionContainerProps())), _this._container);
         };
         /**
          * 触发antd的form验证事件
@@ -304,28 +300,8 @@ var SelectCity = /** @class */ (function (_super) {
         };
     };
     SelectCity.prototype.componentDidMount = function () {
-        this._container = document.createElement('div');
-        document.body.appendChild(this._container);
         /* 挂载document的hide */
         document.addEventListener('click', this.hide);
-    };
-    SelectCity.prototype.componentDidUpdate = function (prevProps, prevState) {
-        if (prevState.addressLoading === false) {
-            this.renderComponent();
-        }
-    };
-    SelectCity.prototype.componentWillUnmount = function () {
-        /* 卸载document的hide */
-        document.removeEventListener('click', this.hide);
-        /**
-         * 卸载_container
-         */
-        if (this._container) {
-            var container = this._container;
-            ReactDOM.unmountComponentAtNode(container);
-            container.parentNode.removeChild(container);
-            // this._container = null;
-        }
     };
     SelectCity.prototype.changeState = function (params) {
         var props = this.props;
@@ -411,7 +387,7 @@ var SelectCity = /** @class */ (function (_super) {
     SelectCity.prototype.render = function () {
         var _this = this;
         var style = this.props.params.style || {};
-        var addressLoading = this.state.addressLoading;
+        var _a = this.state, addressLoading = _a.addressLoading, show = _a.show;
         return (React.createElement("div", { className: "select-city", style: __assign({ width: style.width || '100%', zIndex: 999 }, style) }, addressLoading ?
             React.createElement("div", { style: { width: style.width, display: 'inline-block' } },
                 React.createElement(Spin, { spinning: addressLoading },
@@ -421,7 +397,8 @@ var SelectCity = /** @class */ (function (_super) {
                 React.createElement("div", null,
                     React.createElement("div", { className: "input-city-wrap", style: { width: style.width || '100%' } },
                         React.createElement(Input, __assign({}, this.inputCityProps())),
-                        React.createElement("span", { className: "allow-clear", onClick: function () { return _this.clear(); } }, "x")))));
+                        React.createElement("span", { className: "allow-clear", onClick: function () { return _this.clear(); } }, "x")),
+                    !addressLoading && show && React.createElement(PostionContainer, __assign({}, this.postionContainerProps())))));
     };
     return SelectCity;
 }(React.Component));
